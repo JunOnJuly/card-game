@@ -27,8 +27,10 @@ export default new Vuex.Store({
   },
   mutations: {
     sampleCards (state) {
+
       let tempList = []
       let sampledIndex = _.sampleSize(_.range(state.cardsName.length), 3)
+      
       for (let index of sampledIndex) {
         tempList.push([state.cardsName[index], state.cardsImage[index]])
         state.selectedCards = tempList
