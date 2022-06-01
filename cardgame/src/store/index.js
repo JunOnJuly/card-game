@@ -6,13 +6,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    cardsName: [
-      '사자',
-      '호랑이',
-      '펭귄',
-      '강아지',
-      '고양이',
+
+  cardsName: [
+    '사자',
+    '호랑이',
+    '펭귄',
+    '강아지',
+    '고양이',
   ],
+
   cardsImage: [
     'lion',
     'tiger',
@@ -20,6 +22,7 @@ export default new Vuex.Store({
     'dog',
     'cat'
   ],
+  
     selectedCards: [],
     solutionCard: [],
   },
