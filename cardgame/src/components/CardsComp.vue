@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <div v-if="dialog1 !== false">
       <h1 v-if="dialog1 === 'success'">정답입니다!</h1>
       <h1 v-else-if="dialog1 === 'fail'">다시 도전해보세요!</h1>
