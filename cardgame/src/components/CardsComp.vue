@@ -9,6 +9,7 @@
     <div v-if="dialog0">
       <h1>{{this.solution}}</h1>
     </div>
+    
     <button
     id="startGameBtn"
     v-if="!this.gameSet"
