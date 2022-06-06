@@ -19,9 +19,11 @@
     </button>
       
     <div v-if="this.selectedCards.length > 0">
+
       <div
       id="cardsDiv"
       >
+      
         <div 
         class="card" 
         id="gameCard"
