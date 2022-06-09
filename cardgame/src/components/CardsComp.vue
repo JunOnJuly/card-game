@@ -32,13 +32,16 @@
         v-for="(card, index) in selectedCards"
         :key="index"
         >
+
           <img
           id="cardImg"
           :src="require(`@/assets/${card[1]}.jpg`)"
           >
 
         </div>
+
       </div>  
+      
     </div>
 
 
