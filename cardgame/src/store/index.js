@@ -6,24 +6,35 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    cards: [
-      {사자: './assets/lion.jpg'},
-      {호랑이: './assets/tiger.jpg'},
-      {펭귄: './assets/penguin.jpg'},
-      {강아지: './assets/dog.jpg'},
-      {고양이: './assets/cat.jpg'},
+    cardsName: [
+      '사자',
+      '호랑이',
+      '펭귄',
+      '강아지',
+      '고양이',
   ],
-    selectedCards: {
-    },
-    solutionCard: [null, null],
+  cardsImage: [
+    'lion',
+    'tiger',
+    'penguin',
+    'dog',
+    'cat'
+  ],
+    selectedCards: [],
+    solutionCard: [],
   },
   getters: {
   },
   mutations: {
     sampleCards (state) {
-      state.selectedCards = _.sampleSize(state.cards, 3)
-      state.solutionCard[0] = _.sample(state.selectedCards)
-      state.solutionCard[1] = _.indexOf(state.selectedCards, state.solutionCard[0])
+      let tempList = []
+      let sampledIndex = _.sampleSize(_.range(state.cardsName.length), 3)
+      for (let index of sampledIndex) {
+        tempList.push([state.cardsName[index], state.cardsImage[index]])
+        state.selectedCards = tempList
+      }
+      
+      state.solutionCard = _.sample(state.selectedCards)
     }
   },
   actions: {
