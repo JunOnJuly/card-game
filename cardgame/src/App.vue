@@ -1,71 +1,15 @@
 <template>
   <div>
-
-    <v-app>
-      <v-btn
-      class="white--text"
-      color="purple darken-2"
-      @click="createCards"
-      >
-        create Cards
-      </v-btn>
-      <div v-if="this.selectedCards.length > 0">
-        <div style="width: 100%; display: flex;">
-            
-              <v-card
-              @click="reserve1(index)"
-              :loading="loading[index]"
-              class="mx-auto my-12"
-              max-width="374"
-              v-for="(card, index) in selectedCards"
-              :key="index"
-              >
-                <v-img
-                  height="auto"
-                  width="30vw"
-                  :src="require(`${Object.values(selectedCards[index])[0]}`)"
-                ></v-img>
-
-              </v-card>
-
-        </div>  
-      </div>
-      
-      
-      <div>
-        <v-dialog
-        v-model="dialog1"
-        hide-overlay
-        persistent
-        width= "50%"
-        >
-        <img v-if="dialog1==='success'" src="./assets/success.jpg" style="width: 100%; height: 100%;">
-        <img v-else src="./assets/fail.jpg" style="width: 100%; height: 100%;">
-        </v-dialog>
-      </div>
-
-
-      <div>
-        <v-dialog
-        v-model="dialog0"
-        hide-overlay
-        persistent
-        width= "50%"
-        >
-        <h1 v-if="this.solution.length > 0">
-          {{this.solution[0]}}
-        </h1>
-        </v-dialog>
-      </div>
-
-    </v-app>
+    <cards-comp></cards-comp>
   </div>
 </template>
 
 <script>
+import CardsComp from '@/components/CardsComp.vue'
 
 export default {
   components: {
+<<<<<<< HEAD
   },
   data () {
     return {
@@ -82,8 +26,8 @@ export default {
       console.log(`올바른 카드를 고르세요`)
       this.$store.commit('sampleCards')
       this.solution = this.$store.state.solutionCard[0]
-      this.solution = Object.keys(this.solution)
-      console.log(this.solution);
+      this.solution = Object.keys(this.solution).toString()
+      console.log(this.solution)
       setTimeout(() => {
         this.selectedCards = this.$store.state.selectedCards
         }
@@ -92,11 +36,10 @@ export default {
     },
     reserve1 (index) {
       this.loading[index] = true
-      console.log(this.solution);
-      console.log(Object.keys(this.selectedCards[index]));
-      if (Object.keys(this.selectedCards[index]) === this.solution[1]) {
+      console.log(Object.keys(this.selectedCards[index])[0])
+      if (Object.keys(this.selectedCards[index])[0] === this.solution[1]) {
         setTimeout(() => this.dialog1 = 'success')
-        console.log('정답입니다!');
+        console.log('정답입니다!')
         this.dialog1 = 'false'
 
       } else {
@@ -120,6 +63,9 @@ export default {
       setTimeout(() => (this.dialog1 = false), 2000)
     },
     
+=======
+    CardsComp,
+>>>>>>> b8c32b00b803829c17cc4e001f666932f5cde857
   }
 }
 </script>
